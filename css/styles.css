@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3e273dff5662dea14505a583e4af9241986f3013
 .jumbotron,
 .card-body,
 .container,
@@ -243,6 +246,10 @@ background-color: #4169E1;
   background-color: #343a40; 
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3e273dff5662dea14505a583e4af9241986f3013
 .navbar-nav {
   margin-left: auto; 
 }
@@ -259,6 +266,7 @@ background-color: #4169E1;
   margin-left: 10px;
 }
 
+<<<<<<< HEAD
 #boton {
   border: none;
   margin-top: 8px;
@@ -275,6 +283,8 @@ background-color: #4169E1;
     border: none;
   }
 
+=======
+>>>>>>> 3e273dff5662dea14505a583e4af9241986f3013
 /* Estilos de la barra de navegación en pantallas pequeñas */
 @media (max-width: 992px) {
   .navbar-nav {

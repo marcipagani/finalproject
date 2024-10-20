@@ -1,4 +1,28 @@
 document.addEventListener("DOMContentLoaded", function() {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+    // Obtener el catID desde localStorage o desde los parámetros de la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get('category');
+    const productId = urlParams.get('id');
+
+    // Construir la URL a;adiendo la categoria a la url
+    const url = `https://japceibal.github.io/emercado-api/cats_products/${category}.json`;
+
+    fetchProductData(url, productId);
+
+    setupFavoriteButton();
+});
+
+function fetchProductData(url, productId) {
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            const product = data.products.find(p => p.id == productId);
+=======
+>>>>>>> 3e273dff5662dea14505a583e4af9241986f3013
     const urlParams = new URLSearchParams(window.location.search);
     const category = urlParams.get('category');
     const productId = urlParams.get('id');
@@ -22,24 +46,69 @@ function fetchProductData(url, productId) {
         .then(data => {
             console.log(`Datos de productos cargados:`, data);
             const product = data.products.find(product => product.id == productId);
+<<<<<<< HEAD
+=======
+>>>>>>> 64962b6 (semana 4)
+>>>>>>> 3e273dff5662dea14505a583e4af9241986f3013
 
             if (!product) {
                 console.error("Producto no encontrado");
                 return;
             }
 
+<<<<<<< HEAD
             displayProductInfo(product, data.products);
             setupThumbnails(product.images);
+=======
+<<<<<<< HEAD
+            displayProductInfo(product);
+            setupThumbnails(product.images);
+            setupRelatedProducts(data.products, productId);
+        })
+        .catch(error => console.error('Error al cargar los datos del producto:', error));
+}
+
+function displayProductInfo(product) {
+    document.getElementById('main-image').src = product.image;
+    document.querySelector('.product-name').textContent = product.name;
+    document.querySelector('.product-price p').textContent = `$${product.cost}`;
+    document.querySelector('.product-sold').textContent = `+ ${product.soldCount} vendidos`;
+    document.querySelector('.product-code').textContent = `Cod-${product.id}`;
+    document.querySelector('.product-rating p').textContent = `⭐⭐⭐⭐⭐`;
+
+    const descriptionTab = document.getElementById('descripcion');
+    descriptionTab.innerHTML = `<p class="mt-4">${product.description}</p>`;
+}
+
+=======
+            displayProductInfo(product, data.products);
+            setupThumbnails(product.images);
+            setupRelatedProducts(productId);
+>>>>>>> 3e273dff5662dea14505a583e4af9241986f3013
         })
         .catch(error => console.error('Error al cargar los datos del producto:', error));
 }
 //Configura las miniaturas del producto.
+<<<<<<< HEAD
+=======
+>>>>>>> 64962b6 (semana 4)
+>>>>>>> 3e273dff5662dea14505a583e4af9241986f3013
 function setupThumbnails(images) {
     const thumbnailContainer = document.querySelector('.thumbnail-images');
     
     if (images && images.length > 1) {
+<<<<<<< HEAD
         thumbnailContainer.innerHTML = '';
         images.forEach((imgSrc, index) => {
+=======
+<<<<<<< HEAD
+        thumbnailContainer.innerHTML = ''; 
+        images.forEach((imgSrc) => {
+=======
+        thumbnailContainer.innerHTML = '';
+        images.forEach((imgSrc, index) => {
+>>>>>>> 64962b6 (semana 4)
+>>>>>>> 3e273dff5662dea14505a583e4af9241986f3013
             const imgElement = document.createElement('img');
             imgElement.src = imgSrc;
             imgElement.alt = "Miniatura";
@@ -51,6 +120,44 @@ function setupThumbnails(images) {
 
             imgElement.addEventListener('click', function() {
                 document.getElementById('main-image').src = imgSrc;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+            });
+        });
+    } else {
+        thumbnailContainer.style.display = 'none';
+    }
+}
+
+function setupRelatedProducts(products, productId) {
+    const relatedProductsContainer = document.getElementById('related-products');
+    const relatedProducts = products.filter(p => p.id != productId).slice(0, 10);
+
+    relatedProducts.forEach(product => {
+        const productCard = document.createElement('div');
+        productCard.className = 'col-4 card me-3';
+
+        productCard.innerHTML = `
+            <img src="${product.image}" class="card-img-top" alt="${product.name}">
+            <div class="card-body">
+                <h5 class="card-title">${product.name}</h5>
+                <div class="product-rating">
+                    <p>⭐⭐⭐⭐⭐</p>
+                    <p>5.0</p>
+                </div>
+                <p class="card-text">${product.currency} ${product.cost}</p>
+            </div>
+        `;
+
+        relatedProductsContainer.appendChild(productCard);
+    });
+
+    setupScrollButtons();
+}
+
+=======
+>>>>>>> 3e273dff5662dea14505a583e4af9241986f3013
                 console.log(`Imagen principal cambiada a: ${imgSrc}`);
             });
 
@@ -118,10 +225,13 @@ function displayProductInfo(product, allProducts) {
     } else {
         console.error("Elemento descripcion no encontrado");
     }
+<<<<<<< HEAD
     
     const relatedProductsContainer = document.getElementById('related-products');
     relatedProductsContainer.innerHTML = ''; 
     setupRelatedProducts(product.id);
+=======
+>>>>>>> 3e273dff5662dea14505a583e4af9241986f3013
 
 }
 //Toma los comentarios del producto principal.
@@ -266,6 +376,10 @@ function setupRelatedProducts(productId) {
     const relatedProductsContainer = document.getElementById('related-products');
     relatedProductsContainer.innerHTML = ''; // Limpiar el contenedor de productos relacionados
 
+<<<<<<< HEAD
+=======
+    // URL del producto seleccionado para obtener productos relacionados.
+>>>>>>> 3e273dff5662dea14505a583e4af9241986f3013
     const productUrl = `https://japceibal.github.io/emercado-api/products/${productId}.json`;
 
     fetch(productUrl)
@@ -276,13 +390,24 @@ function setupRelatedProducts(productId) {
             return response.json();
         })
         .then(data => {
+<<<<<<< HEAD
             const relatedProducts = data.relatedProducts;
 
+=======
+            console.log('Datos del producto:', data); // Verificar la estructura del producto
+            const relatedProducts = data.relatedProducts; // Array de productos relacionados
+
+            // Verificar si hay productos relacionados
+>>>>>>> 3e273dff5662dea14505a583e4af9241986f3013
             if (!relatedProducts || relatedProducts.length === 0) {
                 console.log("No hay productos relacionados disponibles.");
                 return;
             }
 
+<<<<<<< HEAD
+=======
+            // Recorrer los productos relacionados y crear las tarjetas correspondientes
+>>>>>>> 3e273dff5662dea14505a583e4af9241986f3013
             relatedProducts.forEach(relatedProduct => {
                 const productCard = document.createElement('div');
                 productCard.classList.add('col', 'product-card', 'mr-3');
@@ -297,6 +422,7 @@ function setupRelatedProducts(productId) {
                     </div>
                 `;
 
+<<<<<<< HEAD
                 relatedProductsContainer.appendChild(productCard);
 
                 productCard.addEventListener('click', function () {
@@ -313,13 +439,30 @@ function setupRelatedProducts(productId) {
                         .catch(error => console.error('Error al cargar el producto relacionado:', error));
                 });
 
+=======
+                // Añadir la tarjeta al contenedor de productos relacionados
+                relatedProductsContainer.appendChild(productCard);
+
+                // Agregar funcionalidad para mostrar detalles del producto relacionado al hacer clic
+                productCard.addEventListener('click', function () {
+                    console.log(`Cambiando a producto: ${relatedProduct.name}`);
+                    displayProductInfo(relatedProduct, []); // Mostrar el producto relacionado
+                });
+
+                // Cargar los comentarios del producto relacionado y mostrar su calificación
+>>>>>>> 3e273dff5662dea14505a583e4af9241986f3013
                 fetchProductCommentsForRelated(relatedProduct.id);
             });
         })
         .catch(error => console.error('Error al cargar los productos relacionados:', error));
 }
+<<<<<<< HEAD
 
 //Configura botones para desplazarse en los productos relacionados.
+=======
+//Configura botones para desplazarse en los productos relacionados.
+>>>>>>> 64962b6 (semana 4)
+>>>>>>> 3e273dff5662dea14505a583e4af9241986f3013
 function setupScrollButtons() {
     const nextBtn = document.getElementById('nextBtn');
     const prevBtn = document.getElementById('prevBtn');
@@ -329,9 +472,20 @@ function setupScrollButtons() {
         const cardWidth = relatedProductsContainer.querySelector('.card').offsetWidth;
         relatedProductsContainer.scrollBy({
             left: cardWidth, 
+<<<<<<< HEAD
             behavior: 'smooth' 
         });
         console.log("Desplazamiento a la derecha.");
+=======
+<<<<<<< HEAD
+            behavior: 'smooth'
+        });
+=======
+            behavior: 'smooth' 
+        });
+        console.log("Desplazamiento a la derecha.");
+>>>>>>> 64962b6 (semana 4)
+>>>>>>> 3e273dff5662dea14505a583e4af9241986f3013
     });
     
     prevBtn.addEventListener('click', function() {
@@ -340,6 +494,23 @@ function setupScrollButtons() {
             left: -cardWidth, 
             behavior: 'smooth'
         });
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    });
+}
+
+function setupFavoriteButton() {
+    const favoriteButton = document.getElementById("favBtn");
+
+    favoriteButton.addEventListener("click", function() {
+        const icon = document.getElementById("favoriteIcon");
+        icon.classList.toggle("bi-heart");
+        icon.classList.toggle("bi-heart-fill");
+    });
+}
+=======
+>>>>>>> 3e273dff5662dea14505a583e4af9241986f3013
         console.log("Desplazamiento a la izquierda.");
     });
 }
@@ -442,4 +613,9 @@ document.addEventListener('DOMContentLoaded', function () {
     //Mostrar nombre de usuario al iniciar sesión
     const usernameDisplay = document.getElementById ('username-display');
     usernameDisplay.textContent = userName;
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> 64962b6 (semana 4)
+>>>>>>> 3e273dff5662dea14505a583e4af9241986f3013

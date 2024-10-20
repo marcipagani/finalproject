@@ -1,9 +1,13 @@
 /* Estilos del navbar y menú hamburguesa */
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3e273dff5662dea14505a583e4af9241986f3013
 #nav-1, #nav-2  {
     display: flex;
     justify-content: space-between;
     align-items: center;
+<<<<<<< HEAD
     background-color: black;
     padding: 10px;
 }
@@ -12,6 +16,12 @@
     background-color: black;
 }
 
+=======
+    background-color: #333;
+    padding: 10px;
+}
+
+>>>>>>> 3e273dff5662dea14505a583e4af9241986f3013
 #nav-1 ul, #nav-2 ul {
     display: flex;
     list-style-type: none;
@@ -142,6 +152,7 @@
     margin-top: 10px;
 }
 
+<<<<<<< HEAD
 /* BOTON ACTIVO */
 #grid-view,#list-view {
     background-color: grey;
@@ -160,6 +171,8 @@
 }
 
 
+=======
+>>>>>>> 3e273dff5662dea14505a583e4af9241986f3013
 
 /* Estilos para celulares */
 
@@ -167,7 +180,11 @@
     #nav-1, #nav-2 {
         flex-direction: column;
         width: 100%;
+<<<<<<< HEAD
         /* background-color: #333; */
+=======
+        background-color: #333;
+>>>>>>> 3e273dff5662dea14505a583e4af9241986f3013
     }
 
     #nav-1 ul li, #nav-2 ul li {
@@ -277,7 +294,11 @@
     #nav-1, #nav-2 {
         flex-direction: column;
         width: 100%;
+<<<<<<< HEAD
         /* background-color: #333; */
+=======
+        background-color: #333;
+>>>>>>> 3e273dff5662dea14505a583e4af9241986f3013
     }
 
     #nav-1 ul li, #nav-2 ul li {
@@ -366,8 +387,12 @@
         flex-grow: 1;
     }
 
+<<<<<<< HEAD
     .product-content h2,
     .product-price {
+=======
+    .product-content h2 {
+>>>>>>> 3e273dff5662dea14505a583e4af9241986f3013
         font-size: 1.25rem;
     }
 
@@ -375,6 +400,13 @@
         font-size: 1rem;
     }
 
+<<<<<<< HEAD
+=======
+    .product-price {
+        font-size: 1.25rem;
+    }
+
+>>>>>>> 3e273dff5662dea14505a583e4af9241986f3013
     .product-sold {
         font-size: 0.9rem;
     }
@@ -387,5 +419,9 @@
     .grid-view .product-image {
         height: 200px;
     }
+<<<<<<< HEAD
 }
 
+=======
+}
+>>>>>>> 3e273dff5662dea14505a583e4af9241986f3013

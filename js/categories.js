@@ -141,6 +141,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         showCategoriesList();
         
     });
+<<<<<<< HEAD
 });
 
 // Mostrar el nombre del usuario
@@ -153,3 +154,7 @@ document.addEventListener('DOMContentLoaded', function () {
     usernameDisplay.textContent = userName;
 });
 
+=======
+     
+});
+>>>>>>> 3e273dff5662dea14505a583e4af9241986f3013

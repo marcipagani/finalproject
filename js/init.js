@@ -38,6 +38,7 @@ let getJSONData = function(url){
         hideSpinner();
         return result;
     });
+<<<<<<< HEAD
 };
 
 // Modo dia y noche
@@ -59,3 +60,6 @@ let modoNoche = localStorage.getItem('modoNoche') === 'true';
 
         // Aplica el modo al cargar la página
         aplicarModo();
+=======
+}
+>>>>>>> 3e273dff5662dea14505a583e4af9241986f3013
